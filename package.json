@@ -1,6 +1,6 @@
 {
   "name": "lets-validate-a11y",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "lets-validate-a11y",
   "main": "index.js",
   "type": "module",
