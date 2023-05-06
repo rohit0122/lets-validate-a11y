@@ -1,6 +1,6 @@
 # Lets Validate A11y
 
-Convenience & ease of use powered by the "Let's Validate A11y" tool and backed by the AXE-CLI.
+Convenience & ease to use, powered by the "Let's Validate A11y" tool and backed by the AXE-Core CLI.
 
 This tool helps you to validate the accessibility issues for batch URLs/files & generate the report in user-readable HTML format so you more focus on fixing it.
 
@@ -72,11 +72,14 @@ config:
 
   npm run analysis
 ```
-The above command will create the artifcats folder under your project root
-with all the analysis info like as follows, refer screenshot:
+The above command will create the *artifcats* folder under your project root
+with all the analysis reported in HTMLs like as follows, refer screenshot:
 
+<img width="226" alt="image" src="https://user-images.githubusercontent.com/6508575/236606037-7067cfe8-ee56-4d17-8229-f888c5f3f0ff.png">
 
+Open the HTML Report and you can read the accessibility issues for individual URL/file on the browser as follows:
 
+<img width="1721" alt="image" src="https://user-images.githubusercontent.com/6508575/236606138-a6488302-7385-4005-8647-3ee697426012.png">
 
 ## Contributing
 
