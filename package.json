@@ -1,0 +1,48 @@
+{
+  "name": "lets-validate-a11y",
+  "version": "1.0.0",
+  "description": "lets-validate-a11y",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "npm": ">=8.3.1",
+    "node": ">=16.14.0"
+  },
+  "scripts": {
+    "lets-init": "node ./init.js",
+    "lets-analysis": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohit0122/lets-validate-a11y.git"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "axe",
+    "tools",
+    "axe-core",
+    "report",
+    "html",
+    "eslint",
+    "debug",
+    "testing"
+  ],
+  "author": "Rohit Shrivastava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohit0122/lets-validate-a11y/issues"
+  },
+  "homepage": "https://github.com/rohit0122/lets-validate-a11y#readme",
+  "dependencies": {
+    "@axe-core/webdriverjs": "^4.7.0",
+    "chalk": "^5.2.0",
+    "file-url": "^4.0.0",
+    "glob": "^10.2.2",
+    "yaml": "^2.2.2"
+  },
+  "devDependencies": {
+    "axe-html-reporter": "^2.2.3"
+  }
+}
