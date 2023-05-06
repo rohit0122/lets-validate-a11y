@@ -1,6 +1,6 @@
 {
   "name": "lets-validate-a11y",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "lets-validate-a11y",
   "main": "index.js",
   "type": "module",
@@ -12,6 +12,10 @@
     "lets-init": "node ./init.js",
     "lets-analysis": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "lets-init": "node ./init.js",
+    "lets-analysis": "node ./index.js"
   },
   "repository": {
     "type": "git",
