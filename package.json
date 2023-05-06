@@ -9,8 +9,9 @@
     "node": ">=16.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index.js"
+    "lets-init": "node ./init.js",
+    "lets-analysis": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
