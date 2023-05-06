@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import AxeBuilder from '@axe-core/webdriverjs';
 import WebDriver from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';

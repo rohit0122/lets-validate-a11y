@@ -1,0 +1,21 @@
+config:
+  #use when you want script to find html by itself using given path, default to false.
+  #Example Value: /Users/rohit.shrivastava/Desktop/
+  findHtmlFromHere: false
+  ignoreFileAndFolders:
+    - node_modules
+    - example.html
+    - test.com
+
+  #skipped if above path is set. This parameter will help script to run only on given path/urls.
+  filesToValidateA11y:
+    - https://www.google.com
+    - /Users/rohit.shrivastava/Desktop/test-file.html
+    - /Users/rohit.shrivastava/Desktop/content/quizcontentfragment/element.html
+  disableRules:
+    - document-title
+    - html-has-lang
+    - landmark-one-main
+    - page-has-heading-one
+    - duplicate-id
+  headless: true
