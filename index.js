@@ -45,9 +45,8 @@ import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFile
             console.log(chalk.italic.blackBright('\nExecuting URL ='), chalk.bgBlueBright(file));
 
             if (!url) {
-                //await driver.quit();
-                //throw new Error('File path not valid - ' + file);
                 console.log(chalk.redBright("File path not valid :- ", file));
+                await driver.quit();
                 continue;
             }
 
