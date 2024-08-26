@@ -1,20 +1,20 @@
 {
   "name": "lets-validate-a11y",
-  "version": "1.0.4",
-  "description": "lets-validate-a11y",
+  "version": "1.0.5",
+  "description": "The Lets Validate A11y tool simplifies the process of assessing accessibility issues by generating user-friendly reports, enabling users to efficiently address identified problems across multiple URLs or files.",
   "main": "index.js",
   "type": "module",
   "engines": {
-    "npm": ">=8.3.1",
-    "node": ">=16.14.0"
+    "npm": ">=9.8.0",
+    "node": ">=20.5.1"
   },
   "bin": {
-    "lets-init": "./init.js",
-    "lets-analysis": "./index.js"
+    "init": "./init.js",
+    "analysis": "./index.js"
   },
   "scripts": {
-    "lets-init": "./init.js",
-    "lets-analysis": "./index.js",
+    "init": "./init.js",
+    "analysis": "./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -40,11 +40,15 @@
   },
   "homepage": "https://github.com/rohit0122/lets-validate-a11y#readme",
   "dependencies": {
-    "@axe-core/webdriverjs": "^4.7.0",
-    "axe-html-reporter": "^2.2.3",
-    "chalk": "^5.2.0",
+    "@axe-core/puppeteer": "^4.10.0",
+    "@axe-core/webdriverjs": "^4.10.0",
+    "axe-html-reporter": "^2.2.10",
+    "chalk": "^5.3.0",
     "file-url": "^4.0.0",
-    "glob": "^10.2.2",
-    "yaml": "^2.2.2"
+    "glob": "^11.0.0",
+    "puppeteer": "^23.1.1",
+    "yaml": "^2.5.0",
+    "chromedriver": "^128.0.0",
+    "selenium-webdriver": "^4.23.0"
   }
 }

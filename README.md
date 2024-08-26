@@ -1,8 +1,8 @@
-# Lets Validate A11y
+# Let's Validate A11y [![NPM a11y package](https://img.shields.io/badge/npm-v20.5.1-blue)](https://www.npmjs.com/package/lets-validate-a11y)
 
-Convenience & ease to use, powered by the "Let's Validate A11y" tool and backed by the AXE-Core CLI.
+User-friendly and straightforward, enhanced by the "Let's Validate A11y" tool and supported by the AXE-Core CLI.
 
-This tool helps you to validate the accessibility issues for batch URLs/files & generate the report in user-readable HTML format so you more focus on fixing it.
+This tool enables you to assess accessibility issues across multiple URLs or files and produces a report in a user-friendly HTML format, allowing you to concentrate on resolving the identified problems.
 
 ## Installation
 
@@ -14,15 +14,7 @@ npm i lets-validate-a11y
 
 ## Simple setup
 
-### Now edit your project's package.json and add following scripts to it.
-
-```
-"scripts": {
-    "init": "lets-init",
-    "analysis": "lets-analysis"
-  }
-```
-### Below command will generate the project required folders and furnished them with dummy data.
+### The command provided below will create the necessary project folders and populate them with placeholder data.
 
 ```bash
   npm run init
@@ -31,8 +23,9 @@ npm i lets-validate-a11y
 
 ## Heart of the project
 
-To use this tool, you will need to edit the following configuration structure in config.yaml file
-Create config.yaml file *(if not exits)* in parallel to your project's package.json file.
+To utilize this tool, you must modify the configuration structure outlined in the config.yaml file.
+
+Generate a config.yaml file *(if it does not already exist)* alongside your project's package.json file.
 
 ***Note: _In YAML file, Whitespace indentation is used to indicate nesting and overall structure._***
 Here is the read about [YAML](https://docs.fileformat.com/programming/yaml/#syntax)
@@ -72,21 +65,20 @@ config:
 
   npm run analysis
 ```
-The above command will create the *artifcats* folder under your project root
-with all the analysis reported in HTMLs like as follows, refer screenshot:
+The command provided will generate the *artifacts* directory within the root of your project.
+All analyses are documented in HTML format, as illustrated in the attached screenshot.
 
 <img width="226" alt="image" src="https://user-images.githubusercontent.com/6508575/236606037-7067cfe8-ee56-4d17-8229-f888c5f3f0ff.png">
 
-Open the HTML Report and you can read the accessibility issues for individual URL/file on the browser as follows:
+Access the HTML Report to review the accessibility issues associated with specific URLs or files directly in your browser as outlined below.
 
 <img width="1721" alt="image" src="https://user-images.githubusercontent.com/6508575/236606138-a6488302-7385-4005-8647-3ee697426012.png">
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+Contributions in the form of pull requests are encouraged. For significant modifications, please initiate a discussion by opening an issue to outline your proposed changes.
 
-Please make sure to update tests as appropriate.
+Kindly ensure that tests are updated as necessary.
 
 ## License
 

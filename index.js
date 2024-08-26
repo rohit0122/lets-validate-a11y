@@ -9,13 +9,13 @@ import chalk from 'chalk';
 import fileUrl from 'file-url';
 import { createHtmlReport } from 'axe-html-reporter';
 import { glob } from 'glob';
-import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFileName } from './constants.js';
+import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFileName, getA11yScore, searchAndAddA11yScore } from './constants.js';
 
 (async () => {
-    console.log(chalk.blueBright('Welcome to Lets Validate Accessibility Tool.'));
+    console.log(chalk.bold.underline.blueBright('Welcome to Lets Validate Accessibility Tool.'));
 
     try {
-        const configFile = fs.existsSync('./config.yaml') ? fs.readFileSync('./config.yaml', 'utf8') : fs.readFileSync('./dist/config.yaml', 'utf8');
+        const configFile = fs.existsSync('./config.yaml') ? fs.readFileSync('./config.yaml', 'utf8') : false;
         if (!configFile) {
             throw new Error('config.yaml file do not have valid configuration.');
         }
@@ -32,7 +32,7 @@ import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFile
             throw new Error('Unable to find any file to execute scan.');
         }
 
-        const chromeOptions = configData.config.headless ? new chrome.Options().addArguments('headless') : null;
+        const chromeOptions = await configData.config.headless ? new chrome.Options().addArguments('headless') : null;
         const outputDirPath = getOutputDirPath();
         const fileName = getOutputFileName();
 
@@ -41,12 +41,14 @@ import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFile
             const driver = await new WebDriver.Builder().forBrowser('chrome')
                 .withCapabilities(WebDriver.Capabilities.chrome())
                 .setChromeOptions(chromeOptions).build();
-            const url = isValidUrl(file) ? file : (await fs.existsSync(file) ? await fileUrl(file) : false);
-            console.log(chalk.greenBright('\nExecuting for URL ='));
-            console.log(chalk.bgBlueBright(file));
+            const url = isValidUrl(file) ? file : (fs.existsSync(file) ? fileUrl(file) : false);
+            console.log(chalk.italic.blackBright('\nExecuting URL ='), chalk.bgBlueBright(file));
+
             if (!url) {
-                await driver.quit();
-                throw new Error('File path not valid - ' + file);
+                //await driver.quit();
+                //throw new Error('File path not valid - ' + file);
+                console.log(chalk.redBright("File path not valid :- ", file));
+                continue;
             }
 
             await driver.get(url).then(async () => {
@@ -55,12 +57,23 @@ import { isValidUrl, baseParamObject, mergeDeep, getOutputDirPath, getOutputFile
                         await driver.quit();
                         throw new Error(err.message);
                     }
-                    if (await results && await results.violations.length > 0) {
+                    if (results && results.violations.length > 0) {
+                        const reportFileName = `a11yReport_${fileName}_${count}.html`;
                         let options = {
                             outputDir: `${outputDirPath}`,
-                            reportFileName: `a11yReport_${fileName}_${count}.html`
+                            reportFileName: reportFileName
                         };
-                        await createHtmlReport({ results: results, options: options });
+                        createHtmlReport({ results: results, options: options });
+
+                        // calculate & update the score in HTML report
+                        const a11yScore = await getA11yScore(results);
+                        console.log(chalk.hex('#EBA832')('A11y score calculated as ', a11yScore));
+
+                        let fileData = fs.readFileSync(`${outputDirPath}/${reportFileName}`, { encoding: 'utf8', flag: 'r' });
+                        fileData = await searchAndAddA11yScore(fileData, a11yScore);
+                        fs.writeFileSync(`${outputDirPath}/${reportFileName}`, fileData);
+
+                        console.log(chalk.bgGreenBright('A11y score added to file.\n'));
                         count++;
                     } else {
                         console.log(chalk.bgGreenBright(' ✔ Looks good here.'));

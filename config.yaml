@@ -11,7 +11,7 @@ config:
   filesToValidateA11y:
     - https://www.google.com
     - /Users/rohit.shrivastava/Desktop/test-file.html
-    - /Users/rohit.shrivastava/Desktop/content/testme/element.html
+    - /Users/rohit.shrivastava/Desktop/CVC-5277/caregiver-no-RFY.html
   disableRules:
     - document-title
     - html-has-lang

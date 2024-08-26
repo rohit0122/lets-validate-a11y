@@ -55,3 +55,48 @@ export const getOutputDirPath = () => {
 export const getOutputFileName = () => {
     return Math.random().toString().substring(2, 6);
 }
+
+export const getA11yScore = async (results) => {
+    let a11yScore = 0;
+    if (await results && await results.violations.length > 0) {
+        let dataToCalculate = {
+            critical: 0,
+            serious: 0,
+            moderate: 0,
+            minor: 0,
+            total: 0,
+        };
+        for (let item of results.violations) {
+            dataToCalculate[item.impact] = dataToCalculate[item.impact] + item.nodes.length;
+            dataToCalculate['total'] = dataToCalculate['total'] + item.nodes.length;
+        }
+
+        a11yScore = await a11yFormulaByAxe(dataToCalculate);
+        //console.log('Data to calculate=====', dataToCalculate);
+        //console.log(chalk.bgCyanBright('A11y score calculated as=====', a11yScore));
+    }
+    return a11yScore;
+}
+
+const a11yFormulaByAxe = (dataToCalculate) => {
+    /*
+            A11y score calculation formula
+          * p2 = 1  //number of Critical and Serious issues
+          * p1 = 59 //number of Moderate issues
+          * p0 = 4 //number of Minor issues
+          * total = 64 //number of total issues
+          Formula====== ( 0.4 * p2 + 0.8 * p1 + p0 ) / total
+    */
+    const p0 = dataToCalculate.minor;
+    const p1 = dataToCalculate.moderate;
+    const p2 = dataToCalculate.critical + dataToCalculate.serious;
+    const totalViolation = dataToCalculate.total;
+    return parseInt((((0.4 * p2) + (0.8 * p1) + p0) / totalViolation) * 100);
+
+}
+
+export const searchAndAddA11yScore = (fileData, a11yScore)=>{
+    // replace 2nd occurance 
+    let t = 0;
+    return fileData.replace(/AXE Accessibility Results/g, match => ++t === 2 ? `AXE Accessibility Results <h1>Page Accessibility Score <span class="badge badge-primary">${a11yScore}</span></h1>` : match);
+}
