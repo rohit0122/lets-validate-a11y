@@ -1,5 +1,6 @@
 node_modules
 .DS_Store
+config.yaml
 npm-debug.log
 .vscode
 .tmp
@@ -8,4 +9,3 @@ npm-debug.log
 .tgz
 artifacts/*
 pup.js
-config.yaml

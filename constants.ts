@@ -69,7 +69,7 @@ const a11yFormulaByAxe = (dataToCalculate: { critical: number; serious: number; 
     const p1: number = dataToCalculate.moderate;
     const p2: number = dataToCalculate.critical + dataToCalculate.serious;
     const totalViolation: number = dataToCalculate.total;
-    return parseInt((((0.4 * p2) + (0.8 * p1) + p0) / totalViolation) * 100);
+    return Math.round(Number((((0.4 * p2) + (0.8 * p1) + p0) / totalViolation) * 100));
 }
 
 export const searchAndAddA11yScore = (fileData: string, a11yScore: number): string => {

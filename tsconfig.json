@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
+        "allowImportingTsExtensions": true,
+        // Generate d.ts files
+        "declaration": true,
+        // This compiler run should
+        // only output d.ts files
+        "emitDeclarationOnly": true,
         "esModuleInterop": true,
-        "module": "ESNext",
+        "module": "esnext",
         "moduleResolution": "node",
-        "outDir": "distts",
+        "outDir": "dist",
         "sourceMap": true,
         "target": "es6"
     },
     "lib": [
-        "es2015"
-    ],
+        "es2016"
+    ]
 }
