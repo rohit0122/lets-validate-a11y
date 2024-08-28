@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "outDir": "distts",
+        "sourceMap": true,
+        "target": "es6"
+    },
+    "lib": [
+        "es2015"
+    ],
+}

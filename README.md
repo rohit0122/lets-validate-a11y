@@ -1,4 +1,4 @@
-# Let's Validate A11y [![NPM a11y package](https://img.shields.io/badge/npm-v20.5.1-blue)](https://www.npmjs.com/package/lets-validate-a11y)
+# Let's Validate A11y [![NPM a11y package](https://img.shields.io/badge/node-v20.5.1-blue)](https://www.npmjs.com/package/lets-validate-a11y)
 
 User-friendly and straightforward, enhanced by the "Let's Validate A11y" tool and supported by the AXE-Core CLI.
 
