@@ -1,8 +1,9 @@
 {
   "name": "lets-validate-a11y",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The Lets Validate A11y tool simplifies the process of assessing accessibility issues by generating user-friendly reports, enabling users to efficiently address identified problems across multiple URLs or files.",
   "main": "index.ts",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "engines": {
     "npm": ">=9.8.0",

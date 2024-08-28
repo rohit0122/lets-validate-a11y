@@ -8,7 +8,7 @@ import chalk from 'chalk';
 (async (): Promise<void> => {
     const currentFileDir: string = path.dirname(url.fileURLToPath(import.meta.url));
     console.log(chalk.blueBright(`\n\t √ Lets validate a11y setup initiated.`));
-    const source: string = `${currentFileDir}/dist`;
+    const source: string = `${currentFileDir}/example`;
     const target: string = './';
     try {
         await fs.cpSync(`${source}`, target, { recursive: true });
