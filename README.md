@@ -1,4 +1,4 @@
-# Let's Validate A11y [![NPM a11y package](https://img.shields.io/badge/npm-v20.5.1-blue)](https://www.npmjs.com/package/lets-validate-a11y)
+# Let's Validate A11Y [![NPM a11y package](https://img.shields.io/badge/node-v20.5.1-blue)](https://www.npmjs.com/package/lets-validate-a11y)
 
 User-friendly and straightforward, enhanced by the "Let's Validate A11y" tool and supported by the AXE-Core CLI.
 
@@ -9,7 +9,7 @@ This tool enables you to assess accessibility issues across multiple URLs or fil
 Use the package manager [npm](https://nodejs.org/en/download) to install Lets Lighthouse.
 
 ```bash
-npm i lets-validate-a11y
+  npm i lets-validate-a11y
 ```
 
 ## Simple setup
@@ -23,16 +23,16 @@ npm i lets-validate-a11y
 
 ## Heart of the project
 
-To utilize this tool, you must modify the configuration structure outlined in the config.yaml file.
+To use this tool, you'll need to modify the configuration structure outlined in the config.yaml file.
 
-Generate a config.yaml file *(if it does not already exist)* alongside your project's package.json file.
+Create a config.yaml file *(if it does not already exist)* alongside your project's package.json file.
 
-***Note: _In YAML file, Whitespace indentation is used to indicate nesting and overall structure._***
+***Note: _In the YAML file, Whitespace indentation is used to indicate nesting and overall structure._***
 Here is the read about [YAML](https://docs.fileformat.com/programming/yaml/#syntax)
 
 ```
 config:
-  #use when you want script to find html by itself using given path, default to false.
+  #use when you want the script to find HTML by itself using the given path, default to false.
   #Example Value: /Users/rohit.shrivastava/Desktop/
   findHtmlFromHere: false
   ignoreFileAndFolders:
@@ -40,7 +40,7 @@ config:
     - example.html
     - test.com
 
-  #skipped if above path is set. This parameter will help script to run only on given path/urls.
+  #skipped if the above path is set. This parameter will help the script to run only on given path/URLs.
   filesToValidateA11y:
     - https://www.google.com
     - /Users/rohit.shrivastava/Desktop/test-file.html
@@ -72,7 +72,7 @@ All analyses are documented in HTML format, as illustrated in the attached scree
 
 Access the HTML Report to review the accessibility issues associated with specific URLs or files directly in your browser as outlined below.
 
-<img width="1721" alt="image" src="https://user-images.githubusercontent.com/6508575/236606138-a6488302-7385-4005-8647-3ee697426012.png">
+<img width="1597" alt="image" src="https://github.com/user-attachments/assets/a9069bc4-5241-4cbf-85a8-a522d64f7675">
 
 ## Contributing
 
